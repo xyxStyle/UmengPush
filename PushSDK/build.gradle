@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
     compileSdkVersion compileSdk
@@ -45,7 +46,28 @@ android {
         release.setRoot('build-types/release')
     }
 }
+//添加
+allprojects {
+    tasks.withType(Javadoc) {
+        options{
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+//添加
+publish {
+    userOrg = 'xyx'//bintray.com用户名
+    groupId = 'com.xyx'//jcenter上的路径
+    artifactId = 'umengpush'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'Oh hi, this is a nice description for a project, right?'//描述，不重要
+    website = 'https://github.com/xyxStyle/UmengPush'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
+}
+//gradlew clean build bintrayUpload -PbintrayUser=xyx -PbintrayKey=89cb0c22c621bd25ad3eb415bd8678dc602bf7eb -PdryRun=false
