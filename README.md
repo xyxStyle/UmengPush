@@ -1,4 +1,4 @@
-# Expandablelayout
+# 友盟推送
 
 技术交流群：598627802，加群前请务必阅读[群行为规范](https://github.com/Lee-Wang-Jing/GroupStandard)
 有问题或者某种需求欢迎加群或者提issues，Thanks
@@ -26,7 +26,8 @@ compile 'com.xyx:umengpush:1.0.0'
 
 
 ## AndroidManifest中添加
-<meta-data
+```
+    <meta-data
         android:name="UMENG_APPKEY"
         android:value="${UMENG_APPKEY}"/>
     <meta-data
